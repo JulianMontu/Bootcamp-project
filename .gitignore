@@ -55,7 +55,7 @@ obj/
 *.user
 *.sln.docstates
 *.sln.ide
-*.sln*
+.sln*
 *.vssscc
 *.vspscc
 
@@ -89,7 +89,6 @@ ExportedObj/
 .vscode/
 *.consulo
 *.code-workspace
-*.sln
 *.suo
 *.tmp
 *.user

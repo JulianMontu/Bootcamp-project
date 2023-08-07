@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DicotequeContext>( opt => opt.UseInMemoryDatabase("Discoteque"));
 
+//aqui ocurre la instancia de mi inyección de dependencias
 builder.Services.AddScoped<IArtistService, IArtistService>();
 
 var app = builder.Build();
