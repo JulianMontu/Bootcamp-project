@@ -55,7 +55,7 @@ obj/
 *.user
 *.sln.docstates
 *.sln.ide
-.sln*
+*.sln*
 *.vssscc
 *.vspscc
 
