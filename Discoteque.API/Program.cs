@@ -1,4 +1,5 @@
 using Discoteque.Business.IServices;
+using Discoteque.Business.Services;
 using Discoteque.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,10 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<DicotequeContext>( opt => opt.UseInMemoryDatabase("Discoteque"));
+builder.Services.AddDbContext<DiscotequeContext>( opt => opt.UseInMemoryDatabase("Discoteque"));
 
 //aqui ocurre la instancia de mi inyección de dependencias
-builder.Services.AddScoped<IArtistService, IArtistService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IArtistService, ArtistService>();
 
 var app = builder.Build();
 
