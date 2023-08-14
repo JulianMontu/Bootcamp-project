@@ -70,5 +70,13 @@ namespace Discoteque.API.Controllers
             var result = await _albumService.CreateAlbum(album);
             return Ok(result);
         }
+
+        [HttpPut]
+        [Route("UpdateAlbum")]
+        public async Task<IActionResult> UpdateAlbumsAsync(Album album)
+        {
+            var result = await _albumService.UpdateAlbum(album);
+            return Ok(result);
+        }
     }
 }

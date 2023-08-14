@@ -140,11 +140,24 @@ namespace Discoteque.Business.Services
         /// </summary>
         /// <param name="album">The Album entity to update</param>
         /// <returns>The new album with updated fields if successful</returns>
-        public async Task<Album> UpdateAlbum(Album album)
+        public async Task<BaseMessage<Album>> UpdateAlbum(Album album)
         {
-            await _unitOfWork.AlbumRepository.Update(album);
-            await _unitOfWork.SaveAsync();
-            return album;
+            try
+            {
+                Album isFind = await _unitOfWork.AlbumRepository.FindAsync(album.Id);
+                if(isFind == null)
+                {
+                    return Utilities.BuildResponse<Album>(HttpStatusCode.NotFound, $"{BaseMessageStatus.ALBUM_NOT_FOUND}");
+                }
+
+                await _unitOfWork.AlbumRepository.Update(album);
+                await _unitOfWork.SaveAsync();
+            }
+            catch (Exception ex)
+            {
+                return Utilities.BuildResponse<Album>(HttpStatusCode.InternalServerError, $"{BaseMessageStatus.INTERNAL_SERVER_ERROR_500} | {ex.Message}");
+            }
+            return Utilities.BuildResponse(HttpStatusCode.OK, BaseMessageStatus.OK_200, new List<Album> { album });
         }
     }
 }
