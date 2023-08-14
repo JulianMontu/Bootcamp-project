@@ -71,6 +71,7 @@ namespace Discoteque.Data
                 ex.Entries.Single().Reload();
             }
         }
+        #region IDisposable
         protected virtual void Dispose(bool disposing)
         {
             if (!_disposed)
@@ -87,5 +88,6 @@ namespace Discoteque.Data
         {
             Dispose(true);
         }
+        #endregion
     }
 }
