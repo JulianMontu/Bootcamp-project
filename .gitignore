@@ -89,7 +89,6 @@ ExportedObj/
 .vscode/
 *.consulo
 *.code-workspace
-*.sln
 *.suo
 *.tmp
 *.user
