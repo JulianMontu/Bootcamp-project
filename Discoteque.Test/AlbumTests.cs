@@ -80,6 +80,7 @@ public class AlbumTests
     [TestMethod]
     public async Task IsExceptionHandled()
     {
+        //Arrange
         _artistRepository.FindAsync(1).Returns(Task.FromResult(new Artist()));
         _albumRepository.AddAsync(_correctAlbum).ThrowsAsyncForAnyArgs(new Exception(ALMBU_SERVICE_EXCEPTION));
         _unitOfWork.AlbumRepository.Returns(_albumRepository);
@@ -88,7 +89,7 @@ public class AlbumTests
         //act
         var newAlbum = await _albumServices.CreateAlbum(_correctAlbum);
 
+        //assert
         Assert.IsTrue(newAlbum.Message.Contains(ALMBU_SERVICE_EXCEPTION));
-
     }
 }
