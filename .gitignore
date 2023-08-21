@@ -1,5 +1,8 @@
 # .NET Core / .NET Framework
 ## Build results
+# Carpeta de archivos de compilación de Visual Studio en todos los proyectos
+*/*/bin/
+*/*/obj/
 bin/
 obj/
 [Bb]in*/
@@ -58,6 +61,7 @@ obj/
 *.sln*
 *.vssscc
 *.vspscc
+.vs/
 
 ## NuGet
 packages/
