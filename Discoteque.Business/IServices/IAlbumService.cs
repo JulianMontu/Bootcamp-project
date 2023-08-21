@@ -66,6 +66,6 @@ namespace Discoteque.Business.IServices
         /// </summary>
         /// <param name="album">The Album entity to update</param>
         /// <returns>The new album with updated fields if successful</returns>
-        Task<Album> UpdateAlbum(Album album);
+        Task<BaseMessage<Album>> UpdateAlbum(Album album);
     }
 }
